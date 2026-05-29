@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJJWAL DHUNGANA | VIDEOGRAPHER & EDITOR</title>
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --card-dark: #0f131a;
+            --gold: #bfa15f;
+            --gold-glow: rgba(191, 161, 95, 0.2);
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ambient Cinematic Background */
+        .cinematic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(15, 19, 26, 0.9) 0%, rgba(7, 9, 14, 1) 100%);
+        }
+
+        .portfolio-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Simple & Powerful Header */
+        header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+        }
+
+        .top-badge {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        /* Easy-to-Click Buttons */
+        .contact-ribbon {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .contact-ribbon a, .contact-ribbon span {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.03);
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-ribbon a:hover {
+            color: #ffffff;
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--bg-dark);
+            font-weight: 600;
+        }
+
+        /* Responsive Layout Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 1.9fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 850px) {
+            .grid-layout { grid-template-columns: 1fr; }
+        }
+
+        /* Clean Visual Cards */
+        .cine-card {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .cine-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 25px var(--gold-glow);
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--gold);
+            padding-left: 10px;
+        }
+
+        /* Simple Lesson Blocks */
+        .lesson-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lesson-title {
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .lesson-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Clear Skill Badges */
+        .skill-badge {
+            display: inline-block;
+            background: rgba(191, 161, 95, 0.1);
+            border: 1px solid rgba(191, 161, 95, 0.2);
+            color: var(--text-light);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-right: 6px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* Plain-English Work Experience Timeline */
+        .work-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 25px;
+        }
+
+        .work-item::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold);
+            border-radius: 50%;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .work-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .work-date {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .company-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.8rem;
+            top: 1px;
+        }
+
+        /* Big Action Button at Bottom */
+        .action-banner {
+            text-align: center;
+            background-color: var(--card-dark);
+            border: 1px solid var(--gold);
+            padding: 35px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .action-banner p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--bg-dark);
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #ffffff;
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cinematic-bg"></div>
+
+    <div class="portfolio-container">
+        
+        <header>
+            <div class="top-badge">Professional Portfolio</div>
+            <h1>Ujjwal Dhungana</h1>
+            <div class="subtitle">Filmmaker & Senior Video Editor</div>
+            
+            <div class="contact-ribbon">
+                <span>📍 Kathmandu, Nepal</span>
+                <span>📞 +977 9701887519</span>
+                <a href="mailto:dhevlogs13@gmail.com">✉ dhevlogs13@gmail.com</a>
+                <a href="https://youtube.com/@dhevlogs" target="_blank">📺 YouTube (@dhevlogs)</a>
+                <a href="https://instagram.com/dhevlogs" target="_blank">📸 Instagram</a>
+            </div>
+        </header>
+
+        <div class="grid-layout">
+            
+            <div class="left-col">
+                
+                <div class="cine-card">
+                    <h2>What 9+ Years Taught Me</h2>
+                    
+                    <div class="lesson-item">
+                        <span class="lesson-title">1. Pacing Rules Everything</span>
+                        <p class="lesson-desc">Good editing isn't just cutting video clips. It is about speed, rhythm, and keeping viewers interested every second.</p>
+                    </div>
+
+                    <div class="lesson-item">
+                        <span class="lesson-title">2. Audio is 70% of a Video</span>
+                        <p class="lesson-desc">Clear sound, great music selection, and sound effects make a video look ten times more professional.</p>
+                    </div>
+
+                    <div class="lesson-item">
+                        <span class="lesson-title">3. Viral Videos Have Secrets</span>
+                        <p class="lesson-desc">Getting millions of views requires a strong hook in the first 3 seconds and a smooth flow that stops people from scrolling past.</p>
+                    </div>
+                </div>
+
+                <div class="cine-card">
+                    <h2>My Expert Skills</h2>
+                    <span class="skill-badge">Cinematic Video Editing</span>
+                    <span class="skill-badge">Motion Graphics</span>
+                    <span class="skill-badge">Professional Audio Editing</span>
+                    <span class="skill-badge">Advanced Color Grading</span>
+                    <span class="skill-badge">AI Video Tools</span>
+                    <span class="skill-badge">Photo Editing (Lightroom/Photoshop)</span>
+                </div>
+
+                <div class="cine-card">
+                    <h2>Software Profile</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">
+                        Highly recognized editor with expert skills in <strong>Wondershare Filmora</strong>, alongside advanced cinematic software platforms. I focus completely on high-quality results.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="right-col">
+                
+                <div class="cine-card">
+                    <h2>About Me</h2>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); text-align: justify; line-height: 1.6;">
+                        I am a professional Filmmaker and Senior Video Editor with more than 9 years of real-world experience. I worked in Sydney, Australia for 7 years making commercial content, and am now based in Kathmandu executing premium video projects. I specialize in shooting and editing high-quality videos, music packages, and viral short-form clips. Whether it is a television studio show or a social media reel, I make sure the final video looks stunning and gets maximum engagement.
+                    </p>
+                </div>
+
+                <div class="cine-card">
+                    <h2>Work Experience</h2>
+                    
+                    <div class="work-item">
+                        <div class="work-header">
+                            <span class="work-title">Freelance Filmmaker & Senior Video Editor</span>
+                            <span class="work-date">2015 – Present</span>
+                        </div>
+                        <div class="company-title">International & Local Projects (Sydney & Kathmandu)</div>
+                        <ul>
+                            <li>Successfully shot and edited over 500+ total videos, including commercial ads, vlogs, and music videos.</li>
+                            <li>Handled studio-level video work for massive television franchises: <strong>Mero Voice Universe</strong> and <strong>Mero Dance Universe</strong> (Sydney Auditions).</li>
+                            <li>Created short-form reels and TikToks for major creators and businesses that earned millions of views.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <span class="work-title">Lead Digital Creator & Videographer</span>
+                            <span class="work-date">2024</span>
+                        </div>
+                        <div class="company-title">Italian Woodfire Pizza Co. (Sydney, Australia)</div>
+                        <ul>
+                            <li>Managed full social media video marketing campaigns, increasing customer views and online engagement.</li>
+                            <li>Shot high-end cinematic food and restaurant content using professional camera angles and color corrections.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <span class="work-title">Senior Event Videographer & Specialist</span>
+                            <span class="work-date">2023 – 2024</span>
+                        </div>
+                        <div class="company-title">Dream Heights Sydney & TRN Events (Australia)</div>
+                        <ul>
+                            <li>Captured multi-camera setups and high-energy live performance sequences for Nepal's biggest touring musical artists.</li>
+                            <li>Created the viral behind-the-scenes (BTS) concert video campaign for the famous <strong>VTEN Sydney Tour 2024</strong>.</li>
+                            <li>Delivered beautiful promo videos under super fast 12-to-24 hour deadlines.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="action-banner">
+            <p>Need top-tier videos that stand out in the market?</p>
+            <a href="mailto:dhevlogs13@gmail.com" class="cta-btn">Contact Me Now</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
